@@ -10,9 +10,15 @@ body {
 .app {
   position: absolute;
   top: 10%;
-  left: 50%;
-  transform: translate(-50%, -10%);
+  left: 10%;
+  width: 80%;
 }
+
+.topDiv{
+  position: absolute;
+  width:100%;
+height: 10em;
+display: inline-block;}
 
 .app .mainHeading h1 {
   text-align: center;
@@ -21,15 +27,18 @@ body {
 .app h1,
 h2 {
   color: white;
+  text-align: center;
+
 }
 
 .app .input {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
-.app .input {
+.app .input .inputs {
   margin-top: 0.8em;
   width: 23em;
   height: 2em;
@@ -41,11 +50,12 @@ h2 {
   padding: 5px;
 }
 
-.app .input input {
+.app .input .inputs input {
   width: 100%;
   height: 1.6em;
   border-color: transparent;
   outline-color: transparent;
+  
 }
 
 .app i {
@@ -55,6 +65,14 @@ h2 {
   color: grey;
   margin-right: 5px;
 }
+
+.app .bottomDiv {
+ position: absolute;
+ display: inline-block;
+ width: 100%;
+ top: 10em;
+}
+
 .app .todos {
   display: flex;
   justify-content: center;
