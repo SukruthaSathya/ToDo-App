@@ -23,6 +23,7 @@ function App() {
       </div>
       <div className="bottomDiv">
         <div className="todos">
+          <h1 >Active ToDos</h1>
           {todos.map((obj) => {
 
             return (
@@ -54,6 +55,12 @@ function App() {
             return null
           })}
         </div>
+        <div className="completed">
+          <h1>Completed</h1>
+        </div>
+       <div className="cancelled">
+         <h1>Cancelled</h1>
+       </div>
       </div>
     </div>
   );
