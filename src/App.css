@@ -4,7 +4,11 @@
 }
 
 body {
-  background-color: #740505;
+  background-image: url('https://images.unsplash.com/photo-1579280921028-21d4e5005a77?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlhcnl8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment:initial;
+ 
 }
 
 .app {
@@ -17,24 +21,29 @@ body {
 .topDiv{
   position: absolute;
   width:100%;
-  height: 10em;
+  height: 20em;
   display: inline-block;}
 
 .app .mainHeading h1 {
   text-align: center;
-}
+  color: black;
+  font-style: italic;
+  font-family: serif;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 100px;}
 
-.app h1,
-h2 {
-  color: white;
+
+.subHeading{
+  height: 5em;
   text-align: center;
-
+  color: black;
 }
 
 .app .input {
   display: flex;
   justify-content: center;
   align-items: center;
+  
   
 }
 
@@ -70,8 +79,10 @@ h2 {
  position: absolute;
  display: flex;
  width: 100%;
- top: 10em;
- height: 50em;
+ top: 20em;
+ height: 20em;
+ text-align: center;
+ color: white;
 }
 
 .app .bottomDiv .todos {
@@ -83,6 +94,7 @@ h2 {
   width: 33%;
   height: 100%;
 }
+
 .app .bottomDiv .todos .todo {
   margin-top: 0.8em;
   width: 20em;
@@ -118,11 +130,20 @@ h2 {
   flex-direction: column;
 }
 
+
 .app .bottomDiv .cancelled {
   display: flex;
   display: inline-block;
   flex-direction: column;
   width: 33%;
   height: 100%;
+}
+
+.highlight{
+  cursor: pointer;
+}
+
+.highlight:hover{
+  transform:scale(1.08)
 }
 

@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
   const [todos, setTodos] = useState([])
   const [todo, setTodo] = useState('')
+  const [day, setDay] = useState('')
+
+  useEffect(() => {
+    const today = new Date();
+    setDay(today.toLocaleDateString('en', { weekday: 'long' }));
+    console.log(day);
+  }, [])
+
   return (
     <div className="app">
       <div className="topDiv">
@@ -12,7 +20,7 @@ function App() {
         </div>
         <div className="subHeading">
           <br />
-          <h2>Whoop, it's Wednesday 🌝 ☕ </h2>
+          <h2>Whoop, it's {day} 🌝 ☕ </h2>
         </div>
         <div className="input">
           <div className="inputs">
@@ -23,7 +31,7 @@ function App() {
       </div>
       <div className="bottomDiv">
         <div className="todos">
-          <h1 >Active ToDos</h1>
+          <h1 className="highlight">Active ToDos</h1>
           {todos.map((obj) => {
 
             return (
@@ -36,10 +44,11 @@ function App() {
                       if (obj2.id === obj.id) {
                         obj2.status = e.target.checked
                       }
+                      console.log(obj2);
                       return obj2
                     }))
                   }} value={obj.status} type="checkbox" name="" id="" />
-                  <p>{obj.text}</p>
+
                 </div>
                 <div className="right">
                   <i className="fas fa-times"></i>
@@ -56,11 +65,13 @@ function App() {
           })}
         </div>
         <div className="completed">
-          <h1>Completed</h1>
+          <h1 className="highlight">Completed</h1>
+
+
         </div>
-       <div className="cancelled">
-         <h1>Cancelled</h1>
-       </div>
+        <div className="cancelled">
+          <h1 className="highlight">Cancelled</h1>
+        </div>
       </div>
     </div>
   );
