@@ -1,11 +1,14 @@
 import React,{useState,useEffect} from 'react'
 import './Home.css';
+import { useHistory} from 'react-router'
 
 function Home() {
     const [todos, setTodos] = useState([])
     const [todo, setTodo] = useState('')
     const [day, setDay] = useState('')
-
+    const history=useHistory()
+    
+    
     useEffect(() => {
         const today = new Date();
         setDay(today.toLocaleDateString('en', { weekday: 'long' }));
@@ -30,7 +33,9 @@ function Home() {
             </div>
             <div className="bottomDiv">
                 <div className="todos">
-                    <h1 className="highlight">Active ToDos</h1>
+                    <h1 className="highlight" onClick={()=>{
+                        history.push('/active')
+                    }} >Active ToDos</h1>
                     {todos.map((obj) => {
 
                         return (
@@ -63,12 +68,16 @@ function Home() {
                     })}
                 </div>
                 <div className="completed">
-                    <h1 className="highlight">Completed</h1>
+                    <h1 className="highlight" onClick={()=>{
+                        history.push('/completed')
+                    }}>Completed</h1>
 
 
                 </div>
                 <div className="cancelled">
-                    <h1 className="highlight">Cancelled</h1>
+                    <h1 className="highlight" onClick={()=>{
+                        history.push('/cancelled')
+                    }}>Cancelled</h1>
                 </div>
             </div>
         </div>
