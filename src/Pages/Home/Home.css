@@ -147,4 +147,10 @@
 
 .back:hover{
 color:teal;}
+
+.list{
+  width: auto;
+  height: max-content;
+  color: black;
+}
   

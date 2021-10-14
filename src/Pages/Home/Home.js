@@ -27,15 +27,18 @@ function Home() {
                 <div className="input">
                     <div className="inputs">
                         <input value={todo} onChange={(e) => setTodo(e.target.value)} type="text" placeholder="🖊️ Add item..." />
-                        <i onClick={() => setTodos([...todos, { id: Date.now(), text: todo, status: false }])} className="fas fa-plus"></i>
+                        <i onClick={() => 
+                            setTodos([...todos, { id: Date.now(), text: todo, status: false }])}
+                            className="fas fa-plus"></i>
                     </div>
                 </div>
             </div>
             <div className="bottomDiv">
                 <div className="todos">
                     <h1 className="highlight" onClick={()=>{
-                        history.push('/active')
-                    }} >Active ToDos</h1>
+                        history.push('/active');
+                        
+                    }}  >Active ToDos</h1>
                     {todos.map((obj) => {
 
                         return (
@@ -49,10 +52,13 @@ function Home() {
                                                 obj2.status = e.target.checked
                                             }
                                             console.log(obj2);
+                                            console.log(todos);
+                                            console.log(obj.status);
                                             return obj2
                                         }))
                                     }} value={obj.status} type="checkbox" name="" id="" />
                                 </div>
+                                <div className="list"><h3>{obj.text}</h3></div>
                                 <div className="right">
                                     <i className="fas fa-times"></i>
                                 </div>
