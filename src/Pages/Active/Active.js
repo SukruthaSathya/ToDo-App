@@ -1,4 +1,5 @@
 import React from 'react'
+import '../Home/Home.css'
 import {useHistory} from 'react-router'
 
 function Active() {
@@ -8,11 +9,16 @@ function Active() {
         return(
         history.push('/'))
     }
+    
 
     return (
         <div>
-
-            <span onClick={handlePage}>active</span>
+        <div className='top'>
+            <span className="back" onClick={handlePage}> Home</span>
+        </div>
+        <div>
+            
+        </div>
         </div>
     )
 }

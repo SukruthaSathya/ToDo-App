@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router'
+import '../Home/Home.css'
 
 function Completed() {
     const history=useHistory()
@@ -10,8 +11,8 @@ function Completed() {
     }
 
     return (
-        <div>
-            <span onClick={handlePage}>Completed</span>
+        <div className="top">
+            <span className="back" onClick={handlePage}>Home</span>
         </div>
     )
 }

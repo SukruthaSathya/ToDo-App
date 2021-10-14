@@ -1,5 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router'
+import '../Home/Home.css'
+
 
 function Cancelled() {
     const history=useHistory()
@@ -10,8 +12,8 @@ function Cancelled() {
     }
 
     return (
-        <div>
-            <span onClick={handlePage}>Cancelled</span>
+        <div className='top'>
+            <span className="back" onClick={handlePage}>Home</span>
         </div>
     )
 }
