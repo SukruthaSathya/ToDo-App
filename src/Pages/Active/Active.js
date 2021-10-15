@@ -11,7 +11,7 @@ function Active() {
         return (
             history.push('/'))
     }
-    const { todos } = useContext(AppContext)
+    const { todos,setTodos } = useContext(AppContext)
 
     useEffect(() => {
         console.log(todos);
@@ -24,23 +24,40 @@ function Active() {
                 <span className="back" onClick={handlePage}> Home</span>
             </div>
             <div className="head">
-               <h1>Active ToDos</h1>
+                <h1>Active ToDos</h1>
             </div>
-            <div className="input">
-                <div className="inputs">
+            <div className="activeInput">
+           {todos.map((obj)=>
+                { return(
+                <div className="activeInputs">
                     <div className="left">
-                        <input type="checkbox" />
+                        <input onChange={(e) => {
+                                        console.log(e.target.checked);
+                                        console.log(obj);
+                                        setTodos(todos.filter(obj2 => {
+                                            if (obj2.id === obj.id) {
+                                                obj2.status = e.target.checked
+                                            }
+                                            console.log(obj2);
+                                            console.log(todos);
+                                            console.log(obj.status);
+                                            return obj2
+                                        }))
+                                    }} value={obj.status} type="checkbox" />
+                                    <br></br>
                     </div>
                     <div className="listText">
-                        <h3>Hello</h3>
+                        <h3>{obj.text.todo}</h3>
                     </div>
                     <div className="right">
-                    <i className="fas fa-times"></i>
+                        <i className="fas fa-times"></i>
                     </div>
                 </div>
+                )
+                })}
             </div>
-                
-        
+
+
         </div>
     )
 }

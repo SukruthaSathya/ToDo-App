@@ -41,6 +41,7 @@
     align-items: center;
     border-radius: 6px;
     padding: 5px;
+   
   }
   
   .app .input .inputs input {
@@ -130,6 +131,27 @@ color:teal;}
   height: 3em;
   text-align: center;
   color: black;
+}
+
+.activeInput {
+  justify-content: center;
+  align-items: center;
+   
+}
+
+ 
+.activeInputs {
+  margin-top: 0.8em;
+  margin-left: 35%;
+  width: 30%;
+  height: 2em;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+  padding: 5px;
+ 
 }
 
 .left {
