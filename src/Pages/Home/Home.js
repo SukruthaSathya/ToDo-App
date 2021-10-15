@@ -1,19 +1,31 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect, useContext} from 'react'
 import './Home.css';
 import { useHistory} from 'react-router'
+import { AppContext } from '../../context';
 
 function Home() {
-    const [todos, setTodos] = useState([])
     const [todo, setTodo] = useState('')
-    const [day, setDay] = useState('')
+    const [day, setDay] = useState('initial')
     const history=useHistory()
+    const {todos}=useContext(AppContext)
+    const {setTodos}=useContext(AppContext)
     
     
     useEffect(() => {
         const today = new Date();
         setDay(today.toLocaleDateString('en', { weekday: 'long' }));
-        console.log(day);
-    }, [])
+        console.log("useEffect day called",day);
+    },[day])
+
+    useEffect(()=>{
+        console.log("useEffect todo called",{todos});
+       
+    },[todos])
+
+    const onAddTodo=()=>{
+        setTodos([...todos,{id: Date.now(), text:{todo}, status:'false'}])
+        console.log(todos);
+    }
     return (
         <div className="app">
             <div className="topDiv">
@@ -27,10 +39,11 @@ function Home() {
                 <div className="input">
                     <div className="inputs">
                         <input value={todo} onChange={(e) => setTodo(e.target.value)} type="text" placeholder="🖊️ Add item..." />
-                        <i onClick={() => 
-                            setTodos([...todos, { id: Date.now(), text: todo, status: false }])}
+                        <i onClick={()=> onAddTodo() }
                             className="fas fa-plus"></i>
+                          
                     </div>
+                    
                 </div>
             </div>
             <div className="bottomDiv">
@@ -39,39 +52,7 @@ function Home() {
                         history.push('/active');
                         
                     }}  >Active ToDos</h1>
-                    {todos.map((obj) => {
-
-                        return (
-                            <div className="todo">
-                                <div className="left">
-                                    <input onChange={(e) => {
-                                        console.log(e.target.checked);
-                                        console.log(obj);
-                                        setTodos(todos.filter(obj2 => {
-                                            if (obj2.id === obj.id) {
-                                                obj2.status = e.target.checked
-                                            }
-                                            console.log(obj2);
-                                            console.log(todos);
-                                            console.log(obj.status);
-                                            return obj2
-                                        }))
-                                    }} value={obj.status} type="checkbox" name="" id="" />
-                                </div>
-                                <div className="list"><h3>{obj.text}</h3></div>
-                                <div className="right">
-                                    <i className="fas fa-times"></i>
-                                </div>
-                            </div>
-                        )
-                    })}
-
-                    {todos.map((obj) => {
-                        if (obj.status) {
-                            return (<h1>{obj.text}</h1>)
-                        }
-                        return null
-                    })}
+                   
                 </div>
                 <div className="completed">
                     <h1 className="highlight" onClick={()=>{

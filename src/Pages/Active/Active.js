@@ -1,6 +1,8 @@
-import React from 'react'
+import React,{useContext, useEffect} from 'react'
 import '../Home/Home.css'
 import {useHistory} from 'react-router'
+import { AppContext } from '../../context';
+
 
 function Active() {
     const history=useHistory()
@@ -9,6 +11,11 @@ function Active() {
         return(
         history.push('/'))
     }
+    const {todos}=useContext(AppContext)
+    
+    useEffect(()=>{
+        console.log(todos);
+    },[todos])
     
 
     return (
@@ -16,8 +23,8 @@ function Active() {
         <div className='top'>
             <span className="back" onClick={handlePage}> Home</span>
         </div>
-        <div>
-            
+        <div className="activeTodoList">
+            <h1>Text here{todos.text}</h1>
         </div>
         </div>
     )
