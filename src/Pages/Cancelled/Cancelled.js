@@ -12,8 +12,10 @@ function Cancelled() {
     }
 
     return (
+        <div className="activeBody">
         <div className='top'>
             <span className="back" onClick={handlePage}>Home</span>
+        </div>
         </div>
     )
 }
