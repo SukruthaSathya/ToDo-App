@@ -23,7 +23,7 @@ function Home() {
     },[todos])
 
     const onAddTodo=()=>{
-        setTodos([...todos,{id: Date.now(), text:{todo}, status:'false'}])
+        setTodos([...todos,{id: Date.now(), text:{todo}, status:'false', cancel:'false'}])
         console.log(todos);
     }
     return (

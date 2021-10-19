@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import '../Home/Home.css'
 import { useHistory } from 'react-router'
 import { AppContext } from '../../context';
@@ -13,10 +13,8 @@ function Active() {
             history.push('/'))
     }
     const { todos, setTodos } = useContext(AppContext)
-
-    useEffect(() => {
-        console.log(todos);
-    }, [todos])
+  
+    
 
 
     return (
@@ -28,8 +26,9 @@ function Active() {
                 <h1>Active ToDos</h1>
             </div>
             <div className="activeInput">
+                
                 {todos.map((obj) => {
-                   
+                    if (obj.status==='false' && obj.cancel==='false'){                   
                     return ( 
                         <div className="activeInputs">
                             <div className="left">
@@ -42,21 +41,31 @@ function Active() {
                                         }
                                         console.log(obj2);
                                         console.log(todos);
-                                        console.log(obj.status);
+                                        console.log("this is obj",obj);
                                         return obj2
                                     }))
                                 }} value={obj.status} type="checkbox" />
                                 <br></br>
                             </div>
                             <div className="listText">
-                            <h3>{obj.text.todo}</h3>
+                                
+                            <h3> {obj.text.todo}</h3>
                             </div>
                             <div className="right">
-                                <i className="fas fa-times"></i>
+                                <i onClick={(e) => {
+                                     obj.cancel='true'
+                                    setTodos(todos.filter(obj2 => {
+                                        if (obj2.id === obj.id) {
+                                            obj2.cancel = "true"
+                                        }
+                                        console.log(obj2);
+                                        return obj2
+                                    }))
+                                }} value={obj.cancel} className="fas fa-times"></i>
                             </div>
                         </div>
-                    )
-                    
+                    ) }
+                    return null
                 })}
             </div>
 

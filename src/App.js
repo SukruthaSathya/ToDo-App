@@ -26,10 +26,11 @@ function App() {
         <Route  path='/completed'>
         <Completed/>
         </Route>
-        </Post>
+       
         <Route  path='/cancelled'>
         <Cancelled />
         </Route>
+        </Post>
       </Router>
      
       </div>
