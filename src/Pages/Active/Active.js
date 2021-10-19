@@ -45,6 +45,7 @@ function Active() {
                                         return obj2
                                     }))
                                 }} value={obj.status} type="checkbox" />
+                                 <span class="tooltiptext">Completed</span>
                                 <br></br>
                             </div>
                             <div className="listText">
@@ -62,6 +63,8 @@ function Active() {
                                         return obj2
                                     }))
                                 }} value={obj.cancel} className="fas fa-times"></i>
+                             <span class="tooltiptext">Cancel</span>
+
                             </div>
                         </div>
                     ) }
