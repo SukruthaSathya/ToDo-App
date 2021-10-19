@@ -1,16 +1,10 @@
 import React,{useContext} from 'react'
-import { useHistory } from 'react-router'
 import '../Home/Home.css'
 import {AppContext} from '../../context'
 
 function Completed() {
-    const history = useHistory()
-    const handlePage = (e) => {
-        e.preventDefault()
-        return (
-            history.push('/'))
-    }
-    const {todos}=useContext(AppContext)
+    
+    const {todos,handlePage}=useContext(AppContext)
 
     return (
         <div className="activeBody">

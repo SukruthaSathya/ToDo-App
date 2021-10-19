@@ -1,19 +1,11 @@
 import React, { useContext } from 'react'
 import '../Home/Home.css'
-import { useHistory } from 'react-router'
 import { AppContext } from '../../context';
 
 
-function Active() {
-    const history = useHistory()
-    const handlePage = (e) => {
-        e.preventDefault()
-
-        return (
-            history.push('/'))
-    }
+function Active() {   
     const { todos, setTodos } = useContext(AppContext)
-  
+    const {handlePage}=useContext(AppContext)
     
 
 
