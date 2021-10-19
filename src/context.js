@@ -9,10 +9,10 @@ function Post({children}){
     const history=useHistory()
     const handlePage = (e) => {
         e.preventDefault()
-
         return (
             history.push('/'))
     }
+   
 
     return(
    <AppContext.Provider value={{todos,setTodos,handlePage}}>

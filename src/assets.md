@@ -3,8 +3,3 @@ background image = 'https://images.unsplash.com/photo-1579280921028-21d4e5005a77
                        
 
                         
-const removeTodo=(obj)=>{
-        const arr=todos
-        arr.splice(arr.findIndex(a=> a.id===obj.id),1);
-        setTodos(arr)
-    }

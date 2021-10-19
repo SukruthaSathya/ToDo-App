@@ -5,10 +5,8 @@ import { AppContext } from '../../context';
 
 function Active() {   
     const { todos, setTodos } = useContext(AppContext)
-    const {handlePage}=useContext(AppContext)
+    const {handlePage}=useContext(AppContext) 
     
-
-
     return (
         <div className='activeBody'>
             <div className='top'>
@@ -25,15 +23,10 @@ function Active() {
                         <div className="activeInputs">
                             <div className="left">
                                 <input onChange={(e) => {
-                                    console.log(e.target.checked);
-                                    console.log(obj);
-                                    setTodos(todos.filter(obj2 => {
+                                   setTodos(todos.filter(obj2 => {
                                         if (obj2.id === obj.id) {
                                             obj2.status = e.target.checked
                                         }
-                                        console.log(obj2);
-                                        console.log(todos);
-                                        console.log("this is obj",obj);
                                         return obj2
                                     }))
                                 }} value={obj.status} type="checkbox" />
