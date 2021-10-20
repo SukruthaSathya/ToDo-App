@@ -13,7 +13,7 @@ function App() {
   return (
     <div>
       
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
       <Post>
         <Route exact path='/'>
         <Home  />
