@@ -3,6 +3,7 @@
     top: 10%;
     left: 10%;
     width: 80%;
+    height: 80%;
   }
   .topDiv{
     position: absolute;
@@ -13,16 +14,18 @@
   .app .mainHeading h1 {
     text-align: center;
     color: black;
-    font-style: italic;
     font-family: serif;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 100px;}
   
   
   .subHeading{
-    height: 5em;
     text-align: center;
     color: black;
+  }
+
+  .app .subHeading h2{
+    font-size: 1.5em;
   }
   
   .input {
@@ -61,7 +64,7 @@ i {
   
   .app .bottomDiv {
    position: absolute;
-   display: flex;
+   display: inline-block;
    width: 100%;
    top: 20em;
    text-align: center;
@@ -69,31 +72,34 @@ i {
   }
   
   .app .bottomDiv .todos {
-    display: flex;
-    display: inline-block;
+    float: left;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     width: 33%;
-    height: 100%;
+    height: 33%;
   }
 
   .app .bottomDiv .completed {
-    display: flex;
-    display: inline-block;
+    float: left;
     width: 34%;
-    height: 100%;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    height: 33%;
   }
   
   .app .bottomDiv .cancelled {
-    display: flex;
-    display: inline-block;
-    flex-direction: column;
+    float: left;
+    justify-content: center;
+    align-items: center;
     width: 33%;
-    height: 100%;
+    height: 33%;
+  }
+ 
+
+  .bottomDiv:after {
+    content: "";
+    display: table;
+    clear: both;
   }
 
   .highlight{
@@ -182,9 +188,38 @@ color:teal;}
   visibility: visible;
 }
   
- 
+@media  screen and (max-width:700px) {
+  .app .topDiv{
+    height: 50%;
+  }
+  .app .mainHeading h1{
+    font-size: 60px;
+  }
+  .app .subHeading h2{
+    font-size: 1em;
+  }
+  .inputs{
+    height: 1.5em;
+  }
+  .app .bottomDiv{
+    top: 50%;
+  }
+  .app .bottomDiv .todos, .app .bottomDiv .completed,.app .bottomDiv .cancelled{
+    width: 100%;
+margin-bottom: 5%;  }
 
-
+} 
+@media  screen and (max-width:500px) {
+.top{
+  height: 10%;
+    padding-top: 10%;
+    font-size: small;
+    padding-right: 5%;
+}
+.activeBody .head h1{
+  font-size: 1.5em;
+}
+}
   
  
   
