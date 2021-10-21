@@ -190,10 +190,13 @@ color:teal;}
   
 @media  screen and (max-width:700px) {
   .app .topDiv{
-    height: 50%;
+    height: 40%;
   }
   .app .mainHeading h1{
     font-size: 60px;
+  }
+  .app .subHeading{
+    margin-bottom: 5%;
   }
   .app .subHeading h2{
     font-size: 1em;
@@ -202,11 +205,12 @@ color:teal;}
     height: 1.5em;
   }
   .app .bottomDiv{
-    top: 50%;
+    top: 40%;
+    padding-top: 5%;
   }
   .app .bottomDiv .todos, .app .bottomDiv .completed,.app .bottomDiv .cancelled{
     width: 100%;
-margin-bottom: 5%;  }
+margin-bottom: 8%;  }
 
 } 
 @media  screen and (max-width:500px) {
